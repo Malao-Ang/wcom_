@@ -1,0 +1,11 @@
+{% extends 'partials/base.html' %}
+{% block title %} Staff Page{% endblock %}
+
+{% block content %}
+{% if user.is_superuser or user.is_staff %}
+    {% include 'partials/topnav.html' %}
+{% else %}
+<h1 style="font-size:40px;text-align:center;">This page does not exist &#129317</h1>
+{%endif %}
+
+{% endblock %}

@@ -1,0 +1,65 @@
+<!doctype html>
+<body>
+    <header>
+        <h3 class="title">W.computer</h3>
+        <nav class="navbar">
+            
+            <ul class="navlink">
+            {% if user.is_authenticated %}
+                <li ><a href="{% url 'dashboard-index' %}">Home</a></li>
+                <li ><a href="{% url 'user-logout' %}">Logout</a></li>
+                <li ><a href="{% url 'dashboard-staff' %}">Staff</a></li>
+            {% else %}
+                <li ><a href="{% url 'user-register' %}">Register</a></li>
+                <li ><a href="{% url 'user-login' %}">Login</a></li>
+            {% endif %}
+            </ul>
+            
+        </nav>
+    </header>
+</body>
+</html>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Mitr&display=swap');
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color:black;
+    }
+    li,a,h1 {
+        font-family: 'Mitr', sans-serif;
+        font-size:16px;
+        color: white;
+        text-decoration: none;
+    }
+    header {
+        display:flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 30px 10%;
+
+    }
+    .navlink {
+        style: none;
+    }
+    .navlink li{
+        display:inline-block;
+        padding: 0px 20px;
+    }
+    .navlink li a{
+        transition:all .3s ease 0s;
+    }
+    .navlink li a:hover{
+        color: gray;
+    }
+    .title{
+        font-family: 'Mitr', sans-serif;
+        font-size:16px;
+        color: white;
+        cursor: pointer;
+        margin-right:auto;
+        margin-top:0;
+    }
+</style>

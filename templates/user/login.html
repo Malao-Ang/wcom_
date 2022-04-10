@@ -1,0 +1,44 @@
+{% extends 'partials/base.html'  %}
+{% block title %}Login page {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h1 class="titleLogin">Welcome to W.computer</h1>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border p-3 bg-black">
+                <h3>Login Page</h3>
+                <hr>
+                <form method="POST" class="form-login">
+                    {% csrf_token %}
+                    {{form|crispy}}
+                    <input type="submit" class="btn btn-success" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .form-login,h3{
+        color: white;
+    }
+    .form-login .btn {
+        margin-top: 10px;
+    }
+    .border{
+        border-radius:8px;
+    }
+    hr{
+        color: white;
+    }
+    .titleLogin{
+        font-size:50px;
+        text-align:center;
+        transition:all .3s ease 0s;
+    }
+    .titleLogin:hover{
+        color: gray;
+    }
+</style>
+{% endblock %}
