@@ -33,6 +33,9 @@ def income(request):
 
 def Income_delete(request,ind):
     item = Income.objects.get(id=ind)
+    if request.method == "POST":
+        item.delete()
+        return redirect('dashboard-income')
     return render(request,'dashboard/income_delete.html')
 
 @login_required()

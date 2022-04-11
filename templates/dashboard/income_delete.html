@@ -11,11 +11,11 @@
                     <div class="alert alert-danger">
                         <h4>Are you sure want to delete?</h4>
                     </div>
-                    <form method="post">
+                    <form method="POST">
                         {% csrf_token %}
-                        {{form}}
-                        <input class="btn btn-danger"  value="confirm" />
-                        <a class="btn btn-secondary" href="{% url 'dashboard-income' %}">Cancle</a>
+                        {{ form }}
+                        <input class="btn btn-danger" type="submit" value="Delete" >
+                        <a class="btn btn-secondary" type="submit" href="{% url 'dashboard-income' %}">Cancle</a>
                     </form>
                 </div>
             </div>
