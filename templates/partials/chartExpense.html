@@ -1,0 +1,40 @@
+<!doctype html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js" integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<div class="chart-container" style=" position: static;height:100%; width:60%; margin-top:10px; margin:auto;">
+    <canvas id="myChart-2" ></canvas>
+</div>
+</html>
+
+<script>
+    const ctxEx = document.getElementById('myChart-2').getContext('2d');
+    const myChart2 = new Chart(ctxEx, {
+        type: 'bar',
+        data: {
+            labels: ['Accessory','rent shop'],
+            datasets: [{
+                label: 'Expense',
+                data: [{{totalAcce}},{{totalRent}}],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+
+
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>

@@ -1,15 +1,24 @@
 <!doctype html>
 <body>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <div class="w3-container w3-center w3-animate-left">
     <header>
         <h3 class="title">W.computer</h3>
         <nav class="navbar">
             
             <ul class="navlink">
-            {% if user.is_authenticated %}
+            {% if user.is_staff or user.is_superuser %}
+                <li ><p>Hello {{request.user.username}} </p></li>
                 <li ><a href="{% url 'dashboard-index' %}">Home</a></li>
-                <li ><a href="{% url 'user-logout' %}">Logout</a></li>
                 <li ><a href="{% url 'dashboard-staff' %}">Staff</a></li>
+                <li ><a href="{% url 'user-logout' %}">Logout</a></li>
+                {% comment %} <li ><a href="{% url 'dashboard-staff' %}">Staff</a></li> {% endcomment %}
+            {%elif user.is_authenticated %}
+                <li ><a href="{% url 'dashboard-index' %}">Home</a></li>
+                <li ><p>Hello {{request.user.username}} </p></li>
+                <li ><a href="{% url 'user-logout' %}">Logout</a></li>
             {% else %}
+                <li ><a href="{% url 'dashboard-index' %}">Home</a></li>
                 <li ><a href="{% url 'user-register' %}">Register</a></li>
                 <li ><a href="{% url 'user-login' %}">Login</a></li>
             {% endif %}
@@ -17,6 +26,7 @@
             
         </nav>
     </header>
+    </div>
 </body>
 </html>
 
@@ -47,6 +57,7 @@
     .navlink li{
         display:inline-block;
         padding: 0px 20px;
+        cursor: pointer;
     }
     .navlink li a{
         transition:all .3s ease 0s;

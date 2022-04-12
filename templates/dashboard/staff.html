@@ -3,9 +3,60 @@
 
 {% block content %}
 {% if user.is_superuser or user.is_staff %}
-    {% include 'partials/topnav.html' %}
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<div class="w3-container w3-center w3-animate-bottom">
+    {%include 'partials/topnav.html'%}
+        {%if PercenProfit <= 0 %}
+        <p style="text-align: center; color:red;font-size:30px;font-weight:bold;cursor: pointer;">เปอร์เซ็นกำไร {{PercenProfit}}% &#128528</p>
+        {% else %}
+        <p style="text-align: center; color:green;font-size:30px;font-weight:bold;cursor: pointer;">เปอร์เซ็นกำไร {{PercenProfit}}% &#128518</p>
+        {%endif %}
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">รายรับและรายจ่าย</p>
+    {% include 'partials/chartProfitVsExpense.html'%}
+    <hr style="color: white; margin-right:10%;margin-left:20%;">
+    {% include 'partials/chartIncome.html'%}
+    <hr style="color: white; margin-right:10%;margin-left:20%;">
+
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">รายจ่าย</p>
+    {% include 'partials/chartExpense.html'%}
+    <hr style="color: white; margin-right:10%;margin-left:20%;">
+
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">ยี่ห้อขายดี</p>
+    {% include 'partials/chartSale.html'%}
+    <hr style="color: white; margin-right:10%;margin-left:20%;">
+
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">ราคาขายยอดนิยม</p>
+    {%include 'partials/chartStaticPriceLaptop.html'%}
+    <hr style="color: white; margin-right:10%;margin-left:20%;">
+
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">ช่องทางการซื้อยอดนิยม</p>
+    {%include 'partials/chartOnlineVsOffline.html'%}
+    <hr style="color: white; margin-right:10%;margin-left:20%;">
+</div>
 {% else %}
-<h1 style="font-size:40px;text-align:center;">This page does not exist &#129317</h1>
+<h1 style="font-size:40px;text-align:center;cursor: pointer;">This page does not exist &#129317</h1>
 {%endif %}
+
+<style>
+    .Serch{
+        display:flex;
+        justify-content: flex-end;
+        align-items: right;
+
+    }
+    .form-inline{
+        display:flex;
+        justify-content: flex-end;
+    }
+    .Serch form .form-control{
+        display:inline-block;
+
+    }
+    .Serch form .btn{
+        display:inline-block;
+        margin-left:10px;
+        margin-right:20%;
+    }
+</style>
 
 {% endblock %}

@@ -53,6 +53,7 @@ class Income(models.Model):
     price = models.PositiveIntegerField(null=False)
     date = models.DateTimeField(auto_now_add=True , blank=False)
     note = models.CharField(max_length=1000,blank=True)
+    
 
     
 class Expenses(models.Model):
@@ -60,6 +61,5 @@ class Expenses(models.Model):
     price = models.PositiveIntegerField(null=False)
     date = models.DateTimeField(auto_now_add=True , blank=False)
     note = models.CharField(max_length=1000,blank=True)
-
     
 
