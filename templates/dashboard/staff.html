@@ -11,25 +11,40 @@
         {% else %}
         <p style="text-align: center; color:green;font-size:30px;font-weight:bold;cursor: pointer;">เปอร์เซ็นกำไร {{PercenProfit}}% &#128518</p>
         {%endif %}
+
+        <div class="dropdown" style="float:right;">
+            <button class="dropbtn">&#128073 Menu &#128072</button>
+            <div class="dropdown-content">
+            <a href="#Income">รายรับ</a>
+            <a href="#Expense">รายจ่าย</a>
+            <a href="#best-brand">ยี่ห้อขายดี</a>
+            <a href="#best-price">ราคายอดนิยม</a>
+            <a href="#best-location">ช่องทางการซื้อ</a>
+            </div>
+        </div>
+        
+
     <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">รายรับและรายจ่าย</p>
     {% include 'partials/chartProfitVsExpense.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
+    <div id="Income">
     {% include 'partials/chartIncome.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
+    </div>
 
-    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">รายจ่าย</p>
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;" id="Expense">รายจ่าย</p>
     {% include 'partials/chartExpense.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 
-    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">ยี่ห้อขายดี</p>
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;" id="best-brand">ยี่ห้อขายดี</p>
     {% include 'partials/chartSale.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 
-    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">ราคาขายยอดนิยม</p>
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;"id="best-price">ราคาขายยอดนิยม</p>
     {%include 'partials/chartStaticPriceLaptop.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 
-    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">ช่องทางการซื้อยอดนิยม</p>
+    <p style="text-align: center; color: white; font-size:30px;cursor: pointer;"id="best-location">ช่องทางการซื้อยอดนิยม</p>
     {%include 'partials/chartOnlineVsOffline.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 </div>
@@ -57,6 +72,50 @@
         margin-left:10px;
         margin-right:20%;
     }
+
+    .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        width:125px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #4CAF50;
+        cursor: pointer;
+        margin-right: 20px;
+      }
+      
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      
+      .dropdown-content a {
+        color: black;
+        padding: 10px ;
+        text-decoration: none;
+        display: block;
+      }
+      
+      .dropdown-content a:hover {background-color: #f1f1f1;}
+      
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+      
+      .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+      }
 </style>
 
 {% endblock %}

@@ -1,3 +1,4 @@
+import re
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Sale_static,Income,Expenses
@@ -147,9 +148,6 @@ def expenses_update(request,ind):
 @login_required()
 def sale(request):
     return render(request,'dashboard/sale.html',)
-
-
-
 
 @login_required()
 def staff(request):
