@@ -198,14 +198,14 @@ def staff(request):
     totalOffline = onlineVsoffline(Sale_static,'offline')
     totalOnline = onlineVsoffline(Sale_static,'online')
     
-    totalProfit = totalBat+totalWin+totalUp+totalAcc
-    +totalUp+totalAcer+totalMac+totalHp+totalAsus
-    +totalDell+totalLG+totalCompaq+totalLe+totalToshi+totalMSI
+    totalProfit = totalBat+totalWin+totalUp+totalAcc+totalUp+totalAcer+totalMac+totalHp+totalAsus+totalDell+totalLG+totalCompaq+totalLe+totalToshi+totalMSI
     totalExpense = totalRent+totalAcce
+    
+
     
     PercenProfit = round(((totalProfit-totalExpense)/totalProfit)*100,2)
 
-    print(totalOffline,totalOnline)
+    print(totalOffline,totalOnline) 
     context = {
         'incomes': incomes,
         'expenses': expenses,

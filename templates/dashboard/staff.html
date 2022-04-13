@@ -4,10 +4,10 @@
 {% block content %}
 {% if user.is_superuser or user.is_staff %}
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<div class="w3-container w3-center w3-animate-bottom">
+<div class="w3-container w3-center w3-animate-bottom"id ="top">
     {%include 'partials/topnav.html'%}
         {%if PercenProfit <= 0 %}
-        <p style="text-align: center; color:red;font-size:30px;font-weight:bold;cursor: pointer;">เปอร์เซ็นกำไร {{PercenProfit}}% &#128528</p>
+        <p style="text-align: center; color:red;font-size:30px;font-weight:bold;cursor: pointer;" >เปอร์เซ็นกำไร {{PercenProfit}}% &#128528</p>
         {% else %}
         <p style="text-align: center; color:green;font-size:30px;font-weight:bold;cursor: pointer;">เปอร์เซ็นกำไร {{PercenProfit}}% &#128518</p>
         {%endif %}
@@ -27,25 +27,31 @@
     <p style="text-align: center; color: white; font-size:30px;cursor: pointer;">รายรับและรายจ่าย</p>
     {% include 'partials/chartProfitVsExpense.html'%}
     <hr style="color: white; margin-right:10%;margin-left:20%;">
+
     <div id="Income">
     {% include 'partials/chartIncome.html'%}
+    <a class="btn btn-danger" href="#top" style="float: right; margin:10px ;">&#128070</a>
     <hr style="color: white; margin-right:10%;margin-left:20%;">
     </div>
 
     <p style="text-align: center; color: white; font-size:30px;cursor: pointer;" id="Expense">รายจ่าย</p>
     {% include 'partials/chartExpense.html'%}
+    <a class="btn btn-danger" href="#top" style="float: right; margin:10px ;">&#128070</a>
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 
     <p style="text-align: center; color: white; font-size:30px;cursor: pointer;" id="best-brand">ยี่ห้อขายดี</p>
     {% include 'partials/chartSale.html'%}
+    <a class="btn btn-danger" href="#top" style="float: right; margin:10px ;">&#128070</a>
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 
     <p style="text-align: center; color: white; font-size:30px;cursor: pointer;"id="best-price">ราคาขายยอดนิยม</p>
     {%include 'partials/chartStaticPriceLaptop.html'%}
+    <a class="btn btn-danger" href="#top" style="float: right; margin:10px ;">&#128070</a>
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 
     <p style="text-align: center; color: white; font-size:30px;cursor: pointer;"id="best-location">ช่องทางการซื้อยอดนิยม</p>
     {%include 'partials/chartOnlineVsOffline.html'%}
+    <a class="btn btn-danger" href="#top" style="float: right; margin:10px ;">&#128070</a>
     <hr style="color: white; margin-right:10%;margin-left:20%;">
 </div>
 {% else %}
