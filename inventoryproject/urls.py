@@ -20,10 +20,16 @@ from django.urls import path,include
 from user import views as user_view
 from django.contrib.auth import views as auth_view
 
+
+from django.views import serve
+from django.conf.urls import url
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('dashboard.urls')),
     path('register/', user_view.register,name = 'user-register'),
     path('',auth_view.LoginView.as_view(template_name='user/login.html'),name='user-login'),
     path('logout/',auth_view.LogoutView.as_view(template_name='user/logout.html'),name='user-logout'),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
 ]
