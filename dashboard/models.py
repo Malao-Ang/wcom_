@@ -39,6 +39,9 @@ LISTEXPENSES = (
 
 class Sale_static(models.Model):
     date = models.DateTimeField(auto_now_add=True , blank=False)
+    day = models.CharField(max_length=2,null = False,default='')
+    month = models.CharField(max_length=2,null = False,default='')
+    year = models.CharField(max_length=4,null = False,default='')
     brand = models.CharField(max_length=100,choices = CATEGORY,null=False)
     price = models.PositiveIntegerField(null=False)
     location = models.CharField(max_length=20,choices = LOCATION,null=False)
@@ -52,6 +55,9 @@ class Income(models.Model):
     list = models.CharField(max_length=20,choices=LISTINCOME,null=False)
     price = models.PositiveIntegerField(null=False)
     date = models.DateTimeField(auto_now_add=True , blank=False)
+    day = models.CharField(max_length=2,null = False,default='')
+    month = models.CharField(max_length=2,null = False,default='')
+    year = models.CharField(max_length=4,null = False,default='')
     note = models.CharField(max_length=1000,blank=True)
     
 
@@ -60,6 +66,9 @@ class Expenses(models.Model):
     list = models.CharField(max_length=20,choices=LISTEXPENSES,null=False)
     price = models.PositiveIntegerField(null=False)
     date = models.DateTimeField(auto_now_add=True , blank=False)
+    day = models.CharField(max_length=2,null = False,default='')
+    month = models.CharField(max_length=2,null = False,default='')
+    year = models.CharField(max_length=4,null = False,default='')
     note = models.CharField(max_length=1000,blank=True)
     
 

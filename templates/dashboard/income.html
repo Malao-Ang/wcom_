@@ -27,7 +27,7 @@
         <th scope="col">id</th>
         <th scope="col">list</th>
         <th scope="col">price</th>
-        <th scope="col">date</th>
+        <th scope="col">date(DD-MM-YYYY)</th>
         <th scope="col">note</th>
         <th scope="col"></th>
       </tr>
@@ -38,7 +38,7 @@
         <th scope="row">{{item.id}}</th>
         <td>{{item.list}}</td>
         <td>{{item.price}}</td>
-        <td>{{item.date}}</td>
+        <td>{{item.day}}-{{item.month}}-{{item.year}}</td>
         <td>{{item.note}}</td>
         <td>
           <a class="btn btn-info btn-sm" href="{% url 'dashboard-income-update' item.id %}">Edit</a>
@@ -94,11 +94,12 @@
       opacity:1;
     }
     .popup{
-      margin:70px auto;
+      margin:10px auto;
       padding:20px;
       background:gray;
       border-radius:5px;
       width:80%;
+      height:80%;
       position:relative;
       transition: all 5s ease-in-out;
     }
@@ -127,7 +128,7 @@
       color:black;
     }
     .popup .content{
-      max-height:30%;
+      max-height:80%;
       overflow:auto;
     }
 
